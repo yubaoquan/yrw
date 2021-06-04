@@ -33,6 +33,7 @@ export default {
 };
 </script>
 
+<!-- eslint-disable max-len -->
 <style>
 .container {
   margin: 0 auto;
@@ -44,8 +45,7 @@ export default {
 }
 
 .title {
-  /* eslint-disable 不生效, 只能移除一截, -apple-system, 否则触发 max-len 错误 */
-  font-family: 'Quicksand', 'Source Sans Pro', BlinkMacSystemFont, 'Segoe UI', Roboto,
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, sans-serif;
   display: block;
   font-weight: 300;
