@@ -6,21 +6,38 @@ module.exports = {
   },
   extends: [
     'airbnb-typescript/base',
-    'plugin:vue/recommended',
     'plugin:nuxt/recommended',
+    'plugin:prettier/recommended',
+    'plugin:vue/base',
   ],
-  plugins: ['@typescript-eslint', 'vue'],
+  plugins: ['@typescript-eslint', 'vue', 'prettier'],
   parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
     project: './tsconfig.json',
-    extraFileExtensions: ['.mjs'],
+    extraFileExtensions: ['.vue'],
     ecmaVersion: 2020,
     createDefaultProgram: true,
   },
 
+  settings: {
+    'import/resolver': {
+      alias: {
+        map: [['@', './']],
+        extensions: ['.js', '.vue'],
+      },
+    },
+  },
+
   // add your custom rules here
   rules: {
+    'prettier/prettier': [
+      'error',
+      {
+        semi: true,
+      },
+    ],
+    'vue/max-attributes-per-line': 'off',
     'arrow-parens': ['error', 'as-needed'],
     'brace-style': ['error', '1tbs'],
     'consistent-return': 'off',
@@ -64,14 +81,17 @@ module.exports = {
     'no-extra-parens': 'off',
     '@typescript-eslint/no-extra-parens': ['error'],
 
-    'lines-around-comment': ['error', {
-      allowArrayStart: true,
-      allowBlockStart: true,
-      allowClassStart: true,
-      allowObjectStart: true,
-      beforeBlockComment: true,
-      beforeLineComment: true,
-    }],
+    'lines-around-comment': [
+      'error',
+      {
+        allowArrayStart: true,
+        allowBlockStart: true,
+        allowClassStart: true,
+        allowObjectStart: true,
+        beforeBlockComment: true,
+        beforeLineComment: true,
+      },
+    ],
     'padding-line-between-statements': [
       'error',
       { blankLine: 'always', prev: 'class', next: '*' },
@@ -85,13 +105,17 @@ module.exports = {
     ],
 
     'space-before-function-paren': 'off',
-    '@typescript-eslint/space-before-function-paren': ['error', {
-      anonymous: 'never',
-      asyncArrow: 'always',
-      named: 'never',
-    }],
+    '@typescript-eslint/space-before-function-paren': [
+      'error',
+      {
+        anonymous: 'never',
+        asyncArrow: 'always',
+        named: 'never',
+      },
+    ],
 
-    '@typescript-eslint/type-annotation-spacing': ['error',
+    '@typescript-eslint/type-annotation-spacing': [
+      'error',
       {
         after: true,
         before: false,
@@ -104,5 +128,4 @@ module.exports = {
       },
     ],
   },
-
 };

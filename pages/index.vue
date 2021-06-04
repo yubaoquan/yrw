@@ -2,9 +2,7 @@
   <div class="container">
     <div>
       <Logo />
-      <h1 class="title">
-        yrw
-      </h1>
+      <h1 class="title">yrw</h1>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -28,7 +26,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    console.info(`aaa`);
+  },
+};
 </script>
 
 <style>
@@ -42,15 +44,9 @@ export default {};
 }
 
 .title {
-  font-family: 'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  /* eslint-disable 不生效, 只能移除一截, -apple-system, 否则触发 max-len 错误 */
+  font-family: 'Quicksand', 'Source Sans Pro', BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
