@@ -1,15 +1,16 @@
 <template>
   <div>
     <Header />
-    <nuxt />
-    <div>footer2233</div>
+    <nuxt-child />
+    <Footer />
   </div>
 </template>
 <script>
-import Header from '@/components/Header.vue';
+import Header from '@/components/header.vue';
+import Footer from '@/components/footer.vue';
 
 export default {
-  components: { Header },
+  components: { Header, Footer },
 };
 </script>
 <style>

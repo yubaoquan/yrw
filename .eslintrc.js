@@ -10,12 +10,12 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:vue/base',
   ],
-  plugins: ['@typescript-eslint', 'vue', 'prettier'],
+  plugins: ['@typescript-eslint', 'vue', 'prettier', 'html'],
   parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
     project: './tsconfig.json',
-    extraFileExtensions: ['.vue'],
+    extraFileExtensions: ['.vue', '.html'],
     ecmaVersion: 2020,
     createDefaultProgram: true,
   },
@@ -27,16 +27,38 @@ module.exports = {
         extensions: ['.js', '.vue'],
       },
     },
+    'html/html-extensions': ['.html'],
   },
 
-  // add your custom rules here
   rules: {
     'prettier/prettier': [
       'error',
       {
         semi: true,
+        printWidth: 100,
+        arrowParens: 'avoid',
+        singleQuote: true,
+        trailingComma: 'es5',
+        overrides: [
+          {
+            files: '*.html',
+            options: {
+              parser: 'html',
+            },
+          },
+          {
+            files: '*.vue',
+            options: {
+              parser: 'vue',
+            },
+          },
+        ],
       },
     ],
+    'global-require': 'off',
+
+    // 'implicit-arrow-linebreak': ['error', 'beside'],
+    'no-control-regex': 'off',
     'vue/max-attributes-per-line': 'off',
     'arrow-parens': ['error', 'as-needed'],
     'brace-style': ['error', '1tbs'],
@@ -108,7 +130,7 @@ module.exports = {
     '@typescript-eslint/space-before-function-paren': [
       'error',
       {
-        anonymous: 'never',
+        anonymous: 'always',
         asyncArrow: 'always',
         named: 'never',
       },

@@ -21,8 +21,14 @@
     }
   },
   "dependencies": {
+    "axios": "^0.21.1",
+    "cookieparser": "^0.1.0",
     "core-js": "^3.9.1",
-    "nuxt": "^2.15.3"
+    "dayjs": "^1.10.5",
+    "js-cookie": "^2.2.1",
+    "nuxt": "^2.15.3",
+    "vue": "^2.6.13",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^6.0.0",
@@ -36,6 +42,7 @@
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-html": "^6.1.2",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-vue": "^7.7.0",

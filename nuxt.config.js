@@ -17,7 +17,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['@/plugins/request.js', '@/plugins/time.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -36,4 +36,25 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  router: {
+    middleware: 'auth',
+    linkActiveClass: 'active',
+    extendRoutes(routes, resolve) {
+      routes.push(
+        ...[
+          {
+            path: '/home',
+            name: 'Home',
+            component: resolve(__dirname, './pages/index.vue'),
+          },
+          {
+            path: '/register',
+            name: 'Register',
+            component: resolve(__dirname, './pages/login.vue'),
+          },
+        ]
+      );
+      return routes;
+    },
+  },
 };
