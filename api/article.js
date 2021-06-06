@@ -30,4 +30,85 @@ function unFavorateArticle(slug) {
   });
 }
 
-export { fetchArticles, fetchFeedArticles, addFavorateArticle, unFavorateArticle };
+function fetchArticleDetail(slug) {
+  return request({
+    url: `/articles/${slug}`,
+    method: 'GET',
+  });
+}
+
+function fetchComments(slug) {
+  return request({
+    url: `/articles/${slug}/comments`,
+    method: 'GET',
+  });
+}
+
+function addComment(slug, body) {
+  return request({
+    url: `/articles/${slug}/comments`,
+    method: 'POST',
+    data: {
+      comment: {
+        body,
+      },
+    },
+  });
+}
+
+function deleteComment(slug, id) {
+  return request({
+    url: `/articles/${slug}/comments/${id}`,
+    method: 'DELETE',
+  });
+}
+
+function createArticle({ title, description, body, tagList }) {
+  return request({
+    url: '/articles',
+    method: 'POST',
+    data: {
+      article: {
+        title,
+        description,
+        body,
+        tagList,
+      },
+    },
+  });
+}
+
+function updateArticle(slug, { title, description, body }) {
+  return request({
+    url: `/articles/${slug}`,
+    method: 'PUT',
+    data: {
+      article: {
+        title,
+        description,
+        body,
+      },
+    },
+  });
+}
+
+function deleteArticle(slug) {
+  return request({
+    url: `/articles/${slug}`,
+    method: 'DELETE',
+  });
+}
+
+export {
+  fetchArticles,
+  fetchFeedArticles,
+  addFavorateArticle,
+  unFavorateArticle,
+  fetchArticleDetail,
+  fetchComments,
+  addComment,
+  deleteComment,
+  createArticle,
+  updateArticle,
+  deleteArticle,
+};

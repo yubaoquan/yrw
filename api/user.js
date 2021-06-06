@@ -27,4 +27,41 @@ function register(user) {
   });
 }
 
-export { login, register };
+function follow(username) {
+  return request({
+    url: `/profiles/${username}/follow`,
+    method: 'POST',
+  });
+}
+
+function unfollow(username) {
+  return request({
+    url: `/profiles/${username}/follow`,
+    method: 'DELETE',
+  });
+}
+
+function updateProfile({ email, username, password, bio, image } = {}) {
+  return request({
+    url: '/user',
+    method: 'PUT',
+    data: {
+      user: {
+        image,
+        bio,
+        email,
+        username,
+        password,
+      },
+    },
+  });
+}
+
+function fetchProfile(username) {
+  return request({
+    url: `/profiles/${username}`,
+    method: 'GET',
+  });
+}
+
+export { login, register, follow, unfollow, updateProfile, fetchProfile };

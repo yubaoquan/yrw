@@ -56,6 +56,7 @@ module.exports = {
       },
     ],
     'global-require': 'off',
+    'object-shorthand': ['error', 'always', { avoidQuotes: false }],
 
     // 'implicit-arrow-linebreak': ['error', 'beside'],
     'no-control-regex': 'off',

@@ -99,6 +99,7 @@ export default {
         limit,
         page,
         tags: tagsRes.data.tags,
+        tab: tab || 'global_feed',
       };
     } catch (e) {
       console.error(e);
@@ -115,14 +116,12 @@ export default {
   methods: {
     async handleMarkArticle({ article }) {
       try {
-        console.info(article.marking);
         if (article.marking) return;
         article.marking = true;
         const task = article.favorited
           ? unFavorateArticle(article.slug)
           : addFavorateArticle(article.slug);
         const res = await task;
-        console.info(res);
         article.favorited = !article.favorited;
         article.favoritesCount += article.favorited ? 1 : -1;
       } catch (e) {
