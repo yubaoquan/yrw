@@ -142,9 +142,6 @@ export default {
     tag() {
       return this.$route.query.tag;
     },
-    tab() {
-      return this.$route.query.tab || 'global_tab';
-    },
   },
 };
 </script>
