@@ -12,3 +12,13 @@ vue-eslint-parser 在`<script>`块外报错
 ```html
 <!-- eslint-disable max-len -->
 ```
+
+## 启动/查询进程id/停止
+
+```bash
+pm2 start npm -- start
+
+pm2 ls
+
+pm2 stop <id>
+```

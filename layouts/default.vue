@@ -6,7 +6,7 @@
   </div>
 </template>
 <script>
-import Header from '@/components/header.vue';
+import Header from '@/components/header2.vue';
 import Footer from '@/components/footer.vue';
 
 export default {
